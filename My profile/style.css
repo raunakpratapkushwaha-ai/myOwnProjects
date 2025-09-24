@@ -54,11 +54,6 @@ span:hover {
     transition: transform 0.5s ease;
 }
 
-span:hover ~ .text-a {
-    opacity: 0;
-    visibility: hidden;
-  }
-
 @keyframes slideRight {
   from {
     transform: translateX(0);

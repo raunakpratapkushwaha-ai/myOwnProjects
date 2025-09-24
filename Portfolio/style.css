@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+/* body{
+    background-color: black;
+} */
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.navbar{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    padding: 25px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.navbar .logo {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin-left: 35px;
+}
+
+.navbar ul li a {
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover a ,
+.navbar ul li.active a{
+    color: yellow;
+
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    padding: 60px 9% 0;
+    color: white;   
+}
+
+.homeInfo h1{
+    font-size: 55px;
+}
+
+.homeInfo h2 {
+    font-size: 32px;
+    margin-top: -10px;
+}
+
+.homeInfo p {
+    font-size: 16px;
+    margin: 10px 0 25px;
+}
+
+.homeInfo .btnSocial{
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    display: inline;
+    padding: 10px 30px;
+    background: purple;
+    border: 2px solid purple;
+    border-radius: 40px;
+    box-shadow: 0 0 10px purple;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    transition: 0.5s;
+}
+
+.btn:hover{
+    background: transparent;
+    box-shadow: none;
+    color: purple;
+}
