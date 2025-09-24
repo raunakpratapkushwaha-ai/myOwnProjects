@@ -50,7 +50,7 @@ a{
 
 .navbar ul li:hover a ,
 .navbar ul li.active a{
-    color: yellow;
+    color: #BC13FE;
 
 }
 
@@ -64,6 +64,10 @@ a{
 
 .homeInfo h1{
     font-size: 55px;
+}
+
+.homeInfo h1:hover{
+    color: yellow;
 }
 
 .homeInfo h2 {
@@ -84,18 +88,18 @@ a{
 .btn {
     display: inline;
     padding: 10px 30px;
-    background: purple;
-    border: 2px solid purple;
+    background: #BC13FE;
+    border: 2px solid #BC13FE;
     border-radius: 40px;
-    box-shadow: 0 0 10px purple;
+    box-shadow: 0 0 10px #BC13FE;
     font-size: 16px;
     font-weight: 600;
-    color: black;
+    color: white;
     transition: 0.5s;
 }
 
 .btn:hover{
     background: transparent;
     box-shadow: none;
-    color: purple;
+    color: #BC13FE;
 }
