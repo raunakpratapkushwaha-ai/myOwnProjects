@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Transaction</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+<body class="min-h-screen bg-gradient-to-b from-emerald-50 to-white flex items-center justify-center px-4 py-12">
+
+<div class="w-full max-w-2xl backdrop-blur-md bg-white/70 border border-emerald-100 shadow-xl rounded-2xl p-8">
+
+    <div class="mb-8 text-center">
+        <h1 class="text-3xl font-bold text-slate-800">Add Transaction</h1>
+        <p class="text-slate-600 mt-2">
+            Record a new <span class="text-emerald-600 font-semibold">income</span> or
+            <span class="text-red-500 font-semibold">expense</span>
+        </p>
+    </div>
+
+    <div id="errorBox" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm mb-6"></div>
+
+    <form id="transactionForm" class="space-y-6">
+
+        <div>
+            <label class="block text-sm font-medium text-slate-700 mb-3">Transaction Type</label>
+            <div class="grid grid-cols-2 gap-4">
+                <button type="button" id="incomeBtn"
+                    class="type-btn p-4 rounded-xl border-2 flex items-center justify-center gap-2 font-medium border-slate-200"
+                    data-type="income">
+                    <i data-lucide="trending-up"></i> Income
+                </button>
+
+                <button type="button" id="expenseBtn"
+                    class="type-btn p-4 rounded-xl border-2 flex items-center justify-center gap-2 font-medium border-slate-200"
+                    data-type="expense">
+                    <i data-lucide="trending-down"></i> Expense
+                </button>
+            </div>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-700 mb-2">Amount</label>
+            <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg font-medium">₹</span>
+                <input id="amountInput" type="number" step="0.01" min="0.01"
+                    class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-lg bg-white shadow-sm"
+                    placeholder="0.00" required>
+            </div>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-700 mb-2">Category</label>
+            <div class="relative">
+                <i data-lucide="tag" class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                <select id="categoryInput"
+                    class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-lg bg-white shadow-sm"
+                    required>
+                    <option value="">Select a category</option>
+                    <option>Salary</option>
+                    <option>Freelance</option>
+                    <option>Investment</option>
+                    <option>Food</option>
+                    <option>Transportation</option>
+                    <option>Shopping</option>
+                    <option>Entertainment</option>
+                    <option>Bills</option>
+                    <option>Healthcare</option>
+                    <option>Education</option>
+                    <option>Other</option>
+                </select>
+            </div>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-700 mb-2">Date</label>
+            <div class="relative">
+                <i data-lucide="calendar" class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                <input id="dateInput" type="date"
+                    class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-lg bg-white shadow-sm" required>
+            </div>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-700 mb-2">Notes (Optional)</label>
+            <div class="relative">
+                <i data-lucide="file-text" class="absolute left-3 top-3 text-slate-400"></i>
+                <textarea id="notesInput" rows="4"
+                    class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-lg bg-white shadow-sm resize-none"
+                    placeholder="Add details..."></textarea>
+            </div>
+        </div>
+
+         
+        <div class="flex gap-4">
+                <button type="submit"
+                class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-lg shadow-md">
+                Add Transaction
+                </button>
+            
+            <a href="addTransaction.html"
+                class="px-6 py-3 border border-slate-300 text-slate-700 font-medium rounded-lg hover:bg-slate-50">
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>
+
+<script>
+lucide.createIcons();
+
+let selectedType = "expense";
+
+document.querySelectorAll(".type-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        selectedType = btn.dataset.type;
+
+        document.querySelectorAll(".type-btn").forEach(b =>
+            b.className = "type-btn p-4 rounded-xl border-2 flex items-center justify-center gap-2 font-medium border-slate-200"
+        );
+
+        if (selectedType === "income") {
+            btn.classList.add("border-emerald-500", "bg-emerald-50", "text-emerald-700");
+        } else {
+            btn.classList.add("border-red-500", "bg-red-50", "text-red-700");
+        }
+    });
+});
+
+document.getElementById("transactionForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const amount = parseFloat(document.getElementById("amountInput").value);
+    const category = document.getElementById("categoryInput").value;
+    const date = document.getElementById("dateInput").value;
+    const notes = document.getElementById("notesInput").value;
+
+    if (!amount || amount <= 0 || !category) {
+        showError("Please fill all fields correctly.");
+        return;
+    }
+
+    const transaction = {
+        id: Date.now().toString(),
+        type: selectedType,
+        category,
+        notes,
+        amount,
+        date
+    };
+
+    const list = JSON.parse(localStorage.getItem("transactions") || "[]");
+    list.push(transaction);
+    localStorage.setItem("transactions", JSON.stringify(list));
+
+    window.location.href = "transactions.html";
+});
+
+function showError(msg) {
+    const box = document.getElementById("errorBox");
+    box.textContent = msg;
+    box.classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
