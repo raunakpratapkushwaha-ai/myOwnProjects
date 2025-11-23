@@ -1,0 +1,48 @@
+.nav {
+    min-width: 100%;
+    max-height: 5rem;
+    /* border: 1px solid black; */
+}
+
+
+.logo {
+    margin-left: 200px;
+    display: inline;
+}
+
+.search-bar {
+    display: inline;
+    margin-left : 5rem;
+    margin-right: 5rem;
+}
+
+.nav-buttons {
+
+    float: right;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-right: 300px;
+    /* border: 1px solid black; */
+}
+
+.nav-buttons button {
+    margin-left: 3rem;
+    height: 2.5rem;
+    width: 7.5rem;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.nav-buttons button:hover {
+    background-color: rgb(40,65,218);
+}
+
+
+a {
+    text-decoration: none;
+}
