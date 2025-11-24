@@ -1,48 +1,106 @@
-.nav {
-    min-width: 100%;
-    max-height: 5rem;
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+
+body {
+    font-family: 'Poppins';
+    background-color: rgb(242,242,244);
+}
+
+
+nav {
+    max-width: 80rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
     /* border: 1px solid black; */
+    margin: auto;
+    background-color: white;
 }
 
-
-.logo {
-    margin-left: 200px;
-    display: inline;
-}
-
-.search-bar {
-    display: inline;
-    margin-left : 5rem;
-    margin-right: 5rem;
-}
 
 .nav-buttons {
-
-    float: right;
-    display: inline-block;
-    margin-bottom: 10px;
-    margin-right: 300px;
+    display: flex;
     /* border: 1px solid black; */
-}
-
-.nav-buttons button {
-    margin-left: 3rem;
-    height: 2.5rem;
-    width: 7.5rem;
-    justify-content: center;
+    max-width: 30rem;
+    justify-content: space-between;
     align-items: center;
-    /* border: 1px solid black; */
-    font-size: 1rem;
-    border: none;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
     border-radius: 10px;
-    transition: 0.3s ease;
 }
 
-.nav-buttons button:hover {
-    background-color: rgb(40,65,218);
+.button img {
+    display: inline-block;
+    vertical-align: middle;
+    
+}
+
+.button:hover {
+    background-color: blue;
+    color: white;
+}
+
+.button img:hover {
+    filter: brightness(0) invert(1);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: blue;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 
-a {
-    text-decoration: none;
+.txt {
+    display: inline; 
+    color: blue;
 }
+
+
+
+.button-icons {
+    max-width: 70rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.button-icons .icon .dropdown .dropbtn img{
+    cursor: pointer;
+}
+
+
+.button-icons .icon img{
+    cursor: pointer;
+}
+
+
