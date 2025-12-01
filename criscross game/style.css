@@ -1,0 +1,74 @@
+body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(180deg, #f7fbff 0%, #eef6ff 100%);
+    }
+
+    .game {
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 12px 0;
+      font-size: 1.6rem;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+      gap: 8px;
+      justify-content: center;
+      margin: 18px auto;
+    }
+
+    button.box {
+      height: 100px;
+      width: 100px;
+      font-size: 2.2rem;
+      border-radius: 10px;
+      border: 2px solid #cfe3ff;
+      background: white;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 120ms ease;
+    }
+
+    button.box:active { transform: scale(0.98); }
+    button.box[disabled] { opacity: 0.65; cursor: default; }
+
+    .controls {
+      margin-top: 14px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .reset {
+      height: 44px;
+      width: 120px;
+      border-radius: 8px;
+      border: none;
+      background: #1976d2;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .status {
+      min-width: 160px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(25,118,210,0.08);
+      color: #0b3a66;
+      font-weight: 600;
+    }
+
+    @media (max-width: 420px) {
+      .board { grid-template-columns: repeat(3, 70px); grid-template-rows: repeat(3, 70px); gap: 6px; }
+      button.box { height: 70px; width: 70px; font-size: 1.6rem; }
+    }

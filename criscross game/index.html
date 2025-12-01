@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Criss Cross Game</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="game" role="application" aria-label="Tic Tac Toe">
+    <h1>Criss Cross Game</h1>
+    <div class="status" id="status">Turn: O</div>
+
+    <div class="board" id="board" aria-live="polite">
+      <button class="box" data-index="0" aria-label="cell 1"></button>
+      <button class="box" data-index="1" aria-label="cell 2"></button>
+      <button class="box" data-index="2" aria-label="cell 3"></button>
+
+      <button class="box" data-index="3" aria-label="cell 4"></button>
+      <button class="box" data-index="4" aria-label="cell 5"></button>
+      <button class="box" data-index="5" aria-label="cell 6"></button>
+
+      <button class="box" data-index="6" aria-label="cell 7"></button>
+      <button class="box" data-index="7" aria-label="cell 8"></button>
+      <button class="box" data-index="8" aria-label="cell 9"></button>
+    </div>
+
+    <div class="controls">
+      <button id="resetBtn" class="reset" aria-label="Reset game">Reset</button>
+    </div>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>
