@@ -1,2 +1,0 @@
-# myOwnProjects
-myOwnProjects
